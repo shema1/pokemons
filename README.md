@@ -1,5 +1,5 @@
-# [Events manager](https://modest-ride-e9f047.netlify.app/)
-Implemented the ability for the user to select the date and reserve the event, after selecting the date shows the free hours
+# [Pokemons](https://modest-ride-e9f047.netlify.app/)
+This project is for exploring Pokemon. On click of ‘Load More’ another chunk of the list is being loaded and displayed on the page. Pokemon details  displayed after clicking on the single pokemon in list. Previously shown pokemon details  disappear.
 [Link on project](https://modest-ride-e9f047.netlify.app/)
 
 
@@ -22,8 +22,5 @@ For this project I have used the following technologies:
 * [BEM methodology](https://en.bem.info/methodology/)
 * [JS ES6](https://ru.wikipedia.org/wiki/ECMAScript)
 * [ReactJS](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [Redux-thunk](https://www.npmjs.com/package/redux-thunk)
-* [Moment.js](https://momentjs.com/)
 
 
