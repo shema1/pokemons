@@ -1,4 +1,4 @@
-const baseUrl = 'http://pokeapi.co/api/v2/pokemon/?limit=12'
+const baseUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=12'
 
 export const fetchPokeList = () => {
 	return fetch(`${baseUrl}`).then(response => response.json())
