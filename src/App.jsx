@@ -1,17 +1,11 @@
-import React, { Component } from "react";
-import { Provider } from "react-redux";
-import "./styles/breakpoints.scss";
-import store from "./store";
-import Pokedex from "./features/pokeDex/component/Pokedex";
+import React, { Component } from 'react'
+import './styles/breakpoints.scss'
+import Pokedex from './features/pokeDex/Pokedex'
 
 class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Pokedex />
-      </Provider>
-    );
-  }
+	render() {
+		return <Pokedex />
+	}
 }
 
-export default App;
+export default App

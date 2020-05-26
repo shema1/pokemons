@@ -18,15 +18,13 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-
-  
 }
 
-.stats-elem{
-    display: flex;
-    justify-content: space-around;
-   
-    &__name{
-        width: 180px;
-    }
+.stats-elem {
+  display: flex;
+  justify-content: space-around;
+
+  &__name {
+    width: 180px;
+  }
 }
