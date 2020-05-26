@@ -5,53 +5,61 @@ import {
 	fetchPokeList,
 	fetchPokeListWhithParam,
 	fetchPokeListWhithQuantity,
+	fetchPoke,
 } from '../gateway/gateway'
 import ControlPanel from '../controlPanel/ControlPanel'
 
 const Pokedex = () => {
-	const [pokeList, setPokeList] = useState([])
-	const [pokeParam, setPokeParam] = useState()
-	const [indicator, setIndicator] = useState(false)
+	const [pokeParam, setPokeParam] = useState("")
 	const [pageCounter, setPageCounter] = useState(0)
 	const [cardOnPage, setCardOnPage] = useState(12)
+	const [pokemonList, setPokemonList] = useState([])
 
 	useEffect(() => {
 		getPokeList()
 	}, [])
 
 	const getPokeList = () => {
+		let responseList = []
 		fetchPokeList().then(response => {
-			setPokeList(response.results)
 			setPokeParam(response.next)
+			response.results.map(elem => responseList.push(fetchPoke(elem.url)))
+			Promise.all(responseList).then(response => setPokemonList(response))
 		})
 	}
+
 	const loadMore = () => {
+		let responseList = []
 		fetchPokeListWhithParam(pokeParam).then(response => {
-			setPokeList(response.results)
 			setPokeParam(response.next)
 			setPageCounter(pageCounter + cardOnPage)
+			response.results.map(elem => responseList.push(fetchPoke(elem.url)))
+			Promise.all(responseList).then(response => setPokemonList(response))
 		})
 	}
 
 	const changeCardQuantity = limit => {
 		setCardOnPage(limit)
+		let responseList = []
 		fetchPokeListWhithQuantity(pageCounter, limit).then(response => {
-			setPokeList(response.results)
 			setPokeParam(response.next)
+			response.results.map(elem => responseList.push(fetchPoke(elem.url)))
+			Promise.all(responseList).then(response => setPokemonList(response))
 		})
 	}
-	const sortByName = () => {
-		let newPokeList = pokeList.sort((a, b) => {
-			if (a.name > b.name) {
+
+	const sortByName = param => {
+		console.log(param)
+		let newPokemonList = pokemonList.slice().sort((a, b) => {
+			if (a[param] > b[param]) {
 				return 1
 			}
-			if (a.name < b.name) {
+			if (a[param] < b[param]) {
 				return -1
 			}
 			return 0
 		})
-		setPokeList(newPokeList)
-		setIndicator(!indicator)
+		setPokemonList(newPokemonList)
 	}
 
 	return (
@@ -62,8 +70,8 @@ const Pokedex = () => {
 				changeCardQuantity={changeCardQuantity}
 			/>
 			<div className='poke-container'>
-				{pokeList &&
-					pokeList.map(elem => <PokeCard {...elem} key={elem.name} />)}
+				{pokemonList.length !== 0 &&
+					pokemonList.map(elem => <PokeCard {...elem} key={elem.name} />)}
 			</div>
 
 			<button className='more' onClick={loadMore}>

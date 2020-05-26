@@ -9,7 +9,7 @@ export const fetchPokeListWhithParam = paramUrl => {
 }
 export const fetchPokeListWhithQuantity = (offset, limit) => {
 	return fetch(
-		`http://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
+		`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`
 	).then(response => response.json())
 }
 

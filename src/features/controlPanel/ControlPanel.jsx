@@ -11,25 +11,33 @@ const ControlPanel = ({ sortByName, changeCardQuantity }) => {
 
 	return (
 		<div className='control-panel'>
-			<button onClick={() => sortByName()}>Sort by name</button>
-			<button
-				className={activeButton === 6 ? 'active-btn' : ''}
-				onClick={() => buttonHandler(6)}
-			>
-				6
-			</button>
-			<button
-				className={activeButton === 12 ? 'active-btn' : ''}
-				onClick={() => buttonHandler(12)}
-			>
-				12
-			</button>
-			<button
-				className={activeButton === 18 ? 'active-btn' : ''}
-				onClick={() => buttonHandler(18)}
-			>
-				18
-			</button>
+			<div className='control-panel__sort'>
+				<span>sort by:</span>
+				<button onClick={() => sortByName('name')}>name</button>
+				<button onClick={() => sortByName('types')}>type</button>
+				<button onClick={() => sortByName('id')}>number</button>
+			</div>
+			<div className='control-panel__pagination'>
+				<span>Card on page: </span>
+				<button
+					className={activeButton === 6 ? 'active-btn' : ''}
+					onClick={() => buttonHandler(6)}
+				>
+					6
+				</button>
+				<button
+					className={activeButton === 12 ? 'active-btn' : ''}
+					onClick={() => buttonHandler(12)}
+				>
+					12
+				</button>
+				<button
+					className={activeButton === 18 ? 'active-btn' : ''}
+					onClick={() => buttonHandler(18)}
+				>
+					18
+				</button>
+			</div>
 		</div>
 	)
 }
