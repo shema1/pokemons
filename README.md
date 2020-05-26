@@ -1,6 +1,6 @@
-# [Pokemons](https://shema1.github.io/pokemons/build/index.html)
+# [Pokemons](https://nostalgic-poitras-70a1ba.netlify.app/)
 This project is for exploring Pokemon. On click of ‘Load More’ another chunk of the list is being loaded and displayed on the page. Pokemon details  displayed after clicking on the single pokemon in list. Previously shown pokemon details  disappear.
-[Link on project](https://shema1.github.io/pokemons/build/index.html)
+[Link on project](https://nostalgic-poitras-70a1ba.netlify.app/)
 
 
 # Getting Started:
